@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* { /* Altera o scoll no firefox */
+  scrollbar-width: 10px;
+  scrollbar-color: #8c8c8c;
+}
+
+*::-webkit-scrollbar /* Altera o scoll no chrome/safari */ {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8c8c8c;
+  border-radius: 20px;
+}

@@ -19,8 +19,8 @@ export const LogoContainer = styled.div `
 `;
 
 export const ButtonContainer = styled.div<{margin?: string}> `
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     margin: ${({ margin }) => margin? margin : 0};
     display: flex;
@@ -43,8 +43,8 @@ export const SearchContainer = styled.div `
 `;
 
 export const SearchInputContainer = styled.div `
-    width: 450px;
-    height: 35px;
+    width: 338px;
+    height: 32px;
     border: 1px solid #d3d3d3;
     border-radius: 40px 0 0 40px;
     display: flex;
@@ -63,8 +63,8 @@ export const SearchInput = styled.input `
 
 export const SearchButton = styled.div `
     border-radius: 0 40px 40px 0;
-    height: 35px;
-    width: 70px;
+    height: 32px;
+    width: 53px;
     background-color: #f8f8f8;
     border: 1px solid #d3d3d3;
     display: flex;

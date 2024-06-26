@@ -9,27 +9,27 @@ import {
         SearchInput, 
         SearchInputContainer
     } from "./styles";
-import HamburgerIcon from '../../assets/hamburger.png';
-import Logo from '../../assets/YouTube-Logo.png'
-import SearchIcon from '../../assets/search.png'
-import MicIcon from '../../assets/microfone-gravador.png'
-import VideoIcon from '../../assets/video.png'
-import BellIcon from '../../assets/sino.png'
+import HamburgerIcon from '../../assets/header-assets/hamburger.png';
+import Logo from '../../assets/header-assets/YouTube-Logo.png'
+import SearchIcon from '../../assets/header-assets/search.png'
+import MicIcon from '../../assets/header-assets/microfone-gravador.png'
+import VideoIcon from '../../assets/header-assets/video.png'
+import BellIcon from '../../assets/header-assets/sino.png'
+import { useContext } from "react";
 import { PagesContext } from "../contexts/pagesContexts";
-import { useState } from "react";
 
 function Header() {
-    const { openMenu, setOpenMenu} = useState(PagesContext)
 
+    const {turnMenu, setTurnMenu} = useContext(PagesContext)
 
     return (
         <Container>
             <LogoContainer>
-                <ButtonContainer onClick={() => {}} margin='0 10px 0 0'>
+                <ButtonContainer onClick={() => {setTurnMenu(!turnMenu)}} margin='0 10px 0 0'>
                     <ButtonIcon alt="" src={HamburgerIcon}/>
                 </ButtonContainer>
                 <img 
-                    style={{cursor: 'pointer', width: '100px'}}
+                    style={{cursor: 'pointer', width: '80px'}}
                     alt=""
                     src={Logo}
                 />

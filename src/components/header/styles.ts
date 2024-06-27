@@ -34,7 +34,7 @@ export const ButtonContainer = styled.div<{margin?: string}> `
 `;
 
 export const ButtonIcon = styled.img `
-    width: 20px;
+    width: 15px;
 `;
 
 

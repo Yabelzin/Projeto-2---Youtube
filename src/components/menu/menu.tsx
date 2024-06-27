@@ -10,17 +10,22 @@ import {
     Container,
     MenuItem,
 } from './styles';
+import You from './menu components/you';
+import Subscriptions from './menu components/subscriptions';
+import { useContext, useState } from 'react';
+import { PagesContext } from '../contexts/pagesContexts';
+
 
 interface IProps {
     turnMenu: boolean;
+    seeChannels: boolean;
 };
     
-function Menu({ turnMenu }: IProps) {
-
+function Menu({ turnMenu }: IProps, {seeChannels}: IProps) {   
     
     return (
         <Container turnMenu={turnMenu}>
-            <MenuItem turnMenu={turnMenu}>
+            <MenuItem id={'homeItem'} style={{backgroundColor: `${turnMenu ? '#f2f2f2' : ''}`}} turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={HomeIcon}/>
                 <span>
                     Home
@@ -44,22 +49,22 @@ function Menu({ turnMenu }: IProps) {
                     Youtube Music
                 </span>
             </MenuItem>
-            <MenuItem style={{visibility: `${turnMenu? 'hidden' : 'visible'}`}}
+            <MenuItem style={{display: `${turnMenu? 'none' : ''}`}}
                 turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={YouIcon}/>
                 <span>
                     You
                 </span>
             </MenuItem>
-            <MenuItem style={{visibility: `${turnMenu? 'hidden' : 'visible'}`}}
+            <MenuItem style={{display: `${turnMenu? 'none' : ''}`}}
                 turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={DownloadsIcon}/>
                 <span>
                     Downloads
                 </span>
             </MenuItem>
-
-
+            <You turnMenu={turnMenu}/>
+            <Subscriptions seeChannels={seeChannels} turnMenu={turnMenu}/>
         </Container>
     )
 };

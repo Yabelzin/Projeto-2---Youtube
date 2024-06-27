@@ -20,7 +20,8 @@ import { PagesContext } from "../contexts/pagesContexts";
 
 function Header() {
 
-    const {turnMenu, setTurnMenu} = useContext(PagesContext)
+    const {turnMenu, setTurnMenu} = useContext(PagesContext);
+    const {seeChannels, setSeeChannels} = useContext(PagesContext);
 
     return (
         <Container>

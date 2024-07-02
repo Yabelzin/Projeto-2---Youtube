@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Header from "./components/header/header";
 import Menu from "./components/menu/menu";
 import { PagesContext } from "./components/contexts/pagesContexts";
-import Subscriptions from "./components/menu/menu components/subscriptions";
+import Subscriptions from "./components/menu/menu components/subscriptionsFolder/subscriptions";
 
 function App() {
   const {turnMenu, seeChannels} = useContext(PagesContext)
@@ -12,11 +12,10 @@ function App() {
     <div className="App">
       <Header/>
       <div style={{width: '100%', display: 'flex'}}>
-        <Menu turnMenu={turnMenu}/>
-        <Subscriptions seeChannels={seeChannels}/>
+        <Menu seeChannels={seeChannels} turnMenu={turnMenu}/>
 
         <div>
-
+          
         </div>
         
       </div>

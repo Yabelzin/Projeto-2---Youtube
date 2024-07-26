@@ -14,13 +14,14 @@ import {
     MenuItem,
     SharedStyle,
 } from '../styles';
+import { useNavigate } from 'react-router-dom'
 
 interface IProps {
     turnMenu: boolean;
 };
     
 function You({ turnMenu }: IProps) {
-
+    const navigate = useNavigate()
     
     return (
         <SharedStyle 
@@ -45,13 +46,13 @@ function You({ turnMenu }: IProps) {
                         Your channel
                     </span>
                 </MenuItem>
-                <MenuItem turnMenu={turnMenu}>
+                <MenuItem onClick={() => {navigate('/feed/history')}} turnMenu={turnMenu}>
                     <ButtonIcon alt="" src={HistoryIcon}/>
                     <span>
                         History
                     </span>
                 </MenuItem>
-                <MenuItem turnMenu={turnMenu}>
+                <MenuItem onClick={() => {navigate('/feed/playlists')}} turnMenu={turnMenu}>
                     <ButtonIcon alt="" src={PlaylistsIcon}/>
                     <span>
                         Playlists

@@ -10,7 +10,8 @@ export const Container = styled.header `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    position: sticky;
+    top: 0;
 `;
 
 export const LogoContainer = styled.div `
@@ -58,7 +59,7 @@ export const SearchInput = styled.input `
     height: 25px;
     outline: none;
     border: none;
-    font-size: .9rem
+    font-size: .9rem;
 `;
 
 export const SearchButton = styled.div `
@@ -70,10 +71,42 @@ export const SearchButton = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer
+    cursor: pointer;
 `;
 
 export const HeaderButton = styled.div `
     width: 200px;
     display: flex;
+`;
+
+export const LoginButton = styled.div `
+ width: 97px;
+ height: 30px;
+ color: rgb(6, 95, 212);
+ border: solid 1px;
+ border-color: rgb(229, 229, 229);
+ border-radius: 40px 40px 40px 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ cursor: pointer;
+
+ &:hover {
+    background-color: rgb(222, 241, 255);
+    border-color: rgb(222, 241, 255);
+ }
+`;
+
+export const LoginImageContainer = styled.div `
+ border-radius: 50%;
+ overflow: hidden;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 18px;
+ height: 18px;
+`;
+
+export const LoginImage = styled.img `
+ width: 25px;
 `;

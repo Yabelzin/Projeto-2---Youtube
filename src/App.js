@@ -1,25 +1,38 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import You from "./pages/library/you";
+import History from "./pages/history";
+import Playlists from "./pages/library/playlists";
 import { useContext } from "react";
-import Header from "./components/header/header";
-import Menu from "./components/menu/menu";
-import { PagesContext } from "./components/contexts/pagesContexts";
-import Subscriptions from "./components/menu/menu components/subscriptionsFolder/subscriptions";
+import { PagesContext, PagesContextStore } from "./components/contexts/pagesContexts";
+import { UserStorage } from "./components/contexts/userContext";
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
+import { CategoryProvider } from "./components/contexts/categoriesContext";
 
 function App() {
-  const {turnMenu, seeChannels} = useContext(PagesContext)
+
+  const {turnMenu, setTurnMenu} = useContext(PagesContext)
 
   return (
-    
-    <div className="App">
-      <Header/>
-      <div style={{width: '100%', display: 'flex'}}>
-        <Menu seeChannels={seeChannels} turnMenu={turnMenu}/>
-
-        <div>
-          
-        </div>
-        
-      </div>
-    </div>
+    <UserStorage>
+    <PagesContextStore>
+    <CategoryProvider>
+      <BrowserRouter>
+        <div className="App">
+                <Routes>
+                  <Route path="/" element={<Home turnMenu={turnMenu}/>}/>
+                  <Route path="/feed/you" element={<You turnMenu={turnMenu}/>}/>
+                  <Route path="/feed/history" element={<History turnMenu={turnMenu}/>}/>
+                  <Route path="/feed/playlists" element={<Playlists turnMenu={turnMenu}/>}/>
+                  <Route path="/user/login" element={<Login/>}/>
+                  <Route path="/user/signup" element={<Register/>}/>
+                </Routes>
+          </div>
+      </BrowserRouter>
+    </CategoryProvider>
+    </PagesContextStore>
+    </UserStorage>
   );
 }
 

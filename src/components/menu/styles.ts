@@ -1,19 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div <{turnMenu: boolean}>`
-    width: ${({ turnMenu }) => turnMenu? '204px' : '81px'};
-    height: 100vh;
+    width: ${({ turnMenu }) => turnMenu? '204px' : '68px'};
+    margin-left: ${({ turnMenu }) => turnMenu ? '0' : '2px'};
+    height: calc(100vh - 90px);
     box-sizing: border-box;
-    padding: 10px 0px 1px 0;
+    padding: 10px, 10px, 10px, 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    position: sticky;
+    top: 55px;
 `;
 
 export const MenuItem = styled.div<{turnMenu: boolean}> `
-    width: 100%;
+    width: 95%;
     min-height: ${({ turnMenu }) => turnMenu? '40px' : '65px'}; //fechado 40px - aberto 70px 
     border-radius: 10px;
     cursor: pointer;
@@ -64,14 +67,14 @@ export const SubscriptionsItem = styled.div<{turnMenu: boolean}, {seeChannels: b
 `;
 
 export const Divisory = styled.div `
-    width: 100%;
+    width: 90%;
     height: .5px;
     background-color: #212121;
     margin: 10px 0 10px 0;
 `;
 
 export const SharedStyle = styled.div<{ turnMenu: boolean }>`
-    width: ${({ turnMenu }) => turnMenu ? '204px' : '81px'};
+    width: ${({ turnMenu }) => turnMenu ? '100%' : '81px'};
     display: flex;
     display: ${({ turnMenu }) => turnMenu? '' : 'none'};
     align-items: center;
@@ -82,7 +85,7 @@ export const SharedStyle = styled.div<{ turnMenu: boolean }>`
 `;
 
 export const InnerContainer = styled.div`
-    width: 169.19px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -10,11 +10,13 @@ import {
     MenuItem,
     SharedStyle
 } from './styles';
+
 import You from './menu components/you';
 import Subscriptions from './menu components/subscriptionsFolder/subscriptions';
 import Explore from './menu components/explore';
 import More from './menu components/more';
 import Settings from './menu components/settings';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
     turnMenu: boolean;
@@ -23,43 +25,43 @@ interface IProps {
     
 function Menu({ turnMenu }: IProps, {seeChannels}: IProps) {
 
-
+    const navigate = useNavigate()
     
     return (
-        <Container style={{paddingTop:'60px',}} turnMenu={turnMenu}>
+        <Container id="menu-container" turnMenu={turnMenu}>
 
-            <MenuItem id={'homeItem'} style={{backgroundColor: `${turnMenu ? '#f2f2f2' : ''}`, width: '90%'}} turnMenu={turnMenu}>
+            <MenuItem className='menuItem homeItem' onClick={() => {navigate('/')}} id={'homeItem'} style={{backgroundColor: `${turnMenu ? '#f2f2f2' : ''}`}} turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={HomeIcon}/>
                 <span>
                     Home
                 </span>
             </MenuItem>
-            <MenuItem style={{width: '90%'}} turnMenu={turnMenu}>
+            <MenuItem className='menuItem shortsItem' turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={ShortsIcon}/>
                 <span>
                     Shorts
                 </span>
             </MenuItem>
-            <MenuItem style={{width: '90%'}} turnMenu={turnMenu}>
+            <MenuItem className='menuItem subscriptionsItem' turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={SubscriptionsIcon}/>
                 <span>
                     Subscriptions
                 </span>
             </MenuItem>
-            <MenuItem style={{width: '90%'}} turnMenu={turnMenu}>
+            <MenuItem className='menuItem musicItem' turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={YoutubeMusicIcon}/>
                 <span>
                     Youtube Music
                 </span>
             </MenuItem>
-            <MenuItem style={{display: `${turnMenu? 'none' : ''}`, width: '90%'}}
+            <MenuItem className='menuItem youItem' onClick={() => {navigate('/feed/you')}} style={{display: `${turnMenu? 'none' : ''}`}}
                 turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={YouIcon}/>
                 <span>
                     You
                 </span>
             </MenuItem>
-            <MenuItem style={{display: `${turnMenu? 'none' : ''}`, width: '90%'}}
+            <MenuItem className='menuItem downloadsItem' style={{display: `${turnMenu? 'none' : ''}`}}
                 turnMenu={turnMenu}>
                 <ButtonIcon alt="" src={DownloadsIcon}/>
                 <span>
@@ -67,7 +69,7 @@ function Menu({ turnMenu }: IProps, {seeChannels}: IProps) {
                 </span>
             </MenuItem>
 
-            <SharedStyle turnMenu={turnMenu}>
+            <SharedStyle id="shared-style" turnMenu={turnMenu}>
                 <You turnMenu={turnMenu}/>
                 
                 <Subscriptions turnMenu={turnMenu} seeChannels={seeChannels}/>

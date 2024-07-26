@@ -47,7 +47,7 @@ function Subscriptions({ turnMenu }: IProps) {
                         display: 'flex',
                         justifyContent: 'center',
                         padding: `${seeChannels? '0 0 0 10px' : '0 10px 0 0'}`,
-                        width: '10px'
+                        width: '10px',
                     }
                 }/>
                 <span>
